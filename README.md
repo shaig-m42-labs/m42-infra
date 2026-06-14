@@ -5,12 +5,15 @@ Local infrastructure for Orion Platform V1.
 ## Start
 
 ```bash
-docker compose up
+docker compose up --build
 ```
 
 The compose file starts databases, Redis, NATS, Prometheus, Grafana, Loki,
 OpenTelemetry Collector, and application services when their Dockerfiles are
 available.
+
+V1 demo environment variables set `SPRING_PROFILES_ACTIVE=demo` for Java
+services and `APP_PROFILE=demo` for Go services.
 
 ## Local URLs
 
@@ -26,6 +29,12 @@ available.
 | NATS monitoring | `http://localhost:8222` |
 
 Grafana credentials default to `admin` / `admin`.
+
+## Readiness
+
+Infrastructure services and application services include Docker health checks.
+Gateway startup waits for auth and core to become healthy; worker and events wait
+for NATS readiness.
 
 ## Databases
 
