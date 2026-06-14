@@ -26,3 +26,15 @@ m42-infra/
 │   └── otel-collector.yml
 └── README.md
 ```
+
+Tech stack:
+```
+PostgreSQL
+Redis
+NATS JetStream
+Prometheus
+Grafana
+Loki
+Tempo
+OpenTelemetry Collector
+```
